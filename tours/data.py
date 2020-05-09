@@ -177,14 +177,8 @@ tours = {
          "price": 74000,
          "stars": "5",
          "country": "Вьетнам",
-		"nights":12,
-		"date": "24 января",
-     }
+		 "nights":12,
+		 "date": "24 января",
+    }
 
 }
-
-data = { "title":title,
-         "subtitle":subtitle,
-         "description":description,
-         "departures":departures,
-         "tours":tours}
