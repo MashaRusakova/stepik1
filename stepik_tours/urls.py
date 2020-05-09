@@ -18,6 +18,7 @@ from django.urls import path
 
 from tours.views import MainView, DepartureView, TourView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainView.as_view()),
