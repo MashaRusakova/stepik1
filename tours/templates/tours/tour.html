@@ -1,67 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>CSSDesk</title>
-    <style type="text/css">
-      
-      body { background-color: #2574b0; }
-      
-      
-    </style>
-  </head>
-  <body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Hotel </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
+{% extends 'base.html' %}
 
-<div class="container mt-3">
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/"> {{ title }} </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="/departure/departure/">{{ departure.msk }}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/departure/spb/">{{ departure.spb }}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/departure/nsk/">{{ departure.nsk }}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/departure/ekb/">{{ departure.ekb }}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/departure/kazan/">{{ departure.kazan }}</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-
-    <h1 class="display-3 mt-4" data-test="title"> {{ tour.title }} {{ tour.stars }} * </h1>
+{% block container %}
+    <h1 class="display-3 mt-4" data-test="title"> {{ tours.title }} {{ tours.stars }} * </h1>
 
     <!-- HERO -->
 
-    <p class="lead" data-test="lead"><span data-test="country">{{ tour.country }}</span><span data-text="departure">{% for key, city in departure.items %} {% if key == tour.departure %}{{ city }} {% endif %} {% endfor %}</span> <span data-text="nights">{{ tour.nights }}</span> ночей</p>
+    <p class="lead" data-test="lead"><span data-test="country">{{ tours.country }}</span><span data-text="departure">{% for key, city in departures.items %} {% if key == tours.departure %}{{ city }} {% endif %} {% endfor %}</span> <span data-text="nights">{{ tours.nights }}</span> ночей</p>
 
-    <img data-test="picture" src="{{ tour.picture }}" class="w-75" alt="">
+    <img data-test="picture" src="{{ tours.picture }}" class="w-75" alt="">
     
-    <p class="my-4 w-75" data-test="description"> {{ tour.description }} </p>
+    <p class="my-4 w-75" data-test="description"> {{ tours.description }} </p>
 
-    <a href="" class="btn btn-success btn-lg" data-test="buybutton">Купить тур за <span data-test="price">42700</span></a>
-</div>
+    <a href="" class="btn btn-success btn-lg" data-test="buybutton">Купить тур за <span data-test="price">{{ tours.price }}</span></a>
 
-</body>
-</html>
-  </body>
-</html>
+{% endblock %}
